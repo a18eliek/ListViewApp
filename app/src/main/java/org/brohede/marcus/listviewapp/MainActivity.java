@@ -40,5 +40,16 @@ public class MainActivity extends AppCompatActivity {
         //    See: https://material.io/guidelines/components/lists.html#lists-specs
         //    Look for "singel line specs" for "text only" lists and modify the list_item_textview
         //    accordingly
+        //Skapar ett List objekt med alla berg. Se array mountainNames.
+        List<String> listData = new ArrayList<String>(Arrays.asList(mountainNames));
+
+        //Skapar en ArrayAdapter som ansluter till list_item_textview, my_item_textview samt med List objektet.
+        ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(), R.layout.list_item_textview, R.id.my_item_textview, listData);
+
+        //Hittar layout elementet my_listview och skapar en objekt instans.
+        ListView myListView = (ListView)findViewById(R.id.my_listview);
+
+        //Ansluter ArrayAdaptern med ListView objektet.
+        myListView.setAdapter(adapter);
     }
 }
