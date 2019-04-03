@@ -33,5 +33,15 @@ public class MainActivity extends AppCompatActivity {
 
         //Ansluter ArrayAdaptern med ListView objektet.
         myListView.setAdapter(adapter);
+
+        //Lägger in en Toast vid klick på ett berg namn. Plats och namn visas.
+        myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), "Detta berg finns vid: " + mountainLocations[position] + "\nHöjden är: " + mountainHeights[position] + "meter.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
+
 }
